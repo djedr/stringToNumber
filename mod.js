@@ -4,7 +4,8 @@ export const stringToNumber = (str) => {
 
   if (trimmed === 'NaN') return NaN
 
-  const num = Number(trimmed)
+  // note: this allows underscores anywhere, including consecutive ones
+  const num = Number(trimmed.replaceAll('_', ''))
 
   if (Number.isNaN(num) === false) return num
 
